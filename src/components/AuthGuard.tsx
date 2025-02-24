@@ -5,7 +5,7 @@ interface AuthGuardProps {
   children: ReactNode;
 }
 
-export function AuthGuard({ children }: AuthGuardProps) {
+export function AuthGuard({ children }: AuthGuardProps): ReactNode {
   const user = localStorage.getItem("user");
 
   return user ? <Navigate to="/" /> : children;
