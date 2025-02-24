@@ -1,4 +1,4 @@
-# Project: Shopping Cart ([assignment link](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart))
+# Project: Shopping Cart with TypeScript ([assignment link](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart))
 
 ## Technology Stack & Setup
 
