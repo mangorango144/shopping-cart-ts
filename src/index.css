@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .show-spinner::-webkit-inner-spin-button,
+  .show-spinner::-webkit-outer-spin-button {
+    opacity: 1 !important;
+  }
+}
+
+body {
+  @apply bg-slate-100 h-screen overflow-y-scroll;
+}
