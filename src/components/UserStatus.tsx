@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
 import { capitalize } from "../lib";
 
-export function UserStatus() {
+export function UserStatus(): JSX.Element {
   const { userData, setUserData } = useUser();
 
-  const handleLogOut = () => {
+  const handleLogOut = (): void => {
     localStorage.removeItem("user");
     setUserData(null);
     toast.success("Logged out");
