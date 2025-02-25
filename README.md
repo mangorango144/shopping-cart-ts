@@ -4,7 +4,7 @@
 
 ### Built with:
 - **Frontend**: React (Vite) with React Router, Context API for state management, and Tailwind CSS for styling.  
-- **Backend (Mocked)**: Uses [Fake Store API](https://fakestoreapi.com/) for product and cart data.  
+- **Backend (Mocked)**: Uses [Fake Store API](https://fakestoreapi.com/) for product and user data.  
 - **Data Fetching**: Fetch API for asynchronous requests.  
 
 ## Component Structure:
@@ -29,8 +29,8 @@
 ### Setup Instructions:
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/mangorango144/shopping-cart.git
-   cd shopping-cart
+   git clone https://github.com/mangorango144/shopping-cart-ts.git
+   cd shopping-cart-ts
    ```
 2. Install dependencies:  
    ```sh
