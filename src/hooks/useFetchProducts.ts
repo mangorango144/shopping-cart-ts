@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Product } from "../types";
 
 export const useFetchProducts = () => {
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [products, setProducts] = useState<Product[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -17,7 +18,7 @@ export const useFetchProducts = () => {
           setProducts(json);
           setError(null);
         } catch (err) {
-          setError(err.message);
+          setError((err as Error).message);
           setProducts(null);
         } finally {
           setLoading(false);
