@@ -3,7 +3,7 @@ import { Footer, Navbar } from "../components";
 import { Toaster } from "react-hot-toast";
 import { ShopProvider, UserProvider } from "../context";
 
-export function Layout() {
+export function Layout(): JSX.Element {
   return (
     <div className="flex flex-col min-h-screen">
       <ShopProvider>
