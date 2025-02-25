@@ -1,10 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import { User } from "../types";
-
-interface UserContextType {
-  userData: User | null;
-  setUserData: (user: User | null) => void;
-}
+import { User, UserContextType } from "../types";
 
 export const UserContext = createContext<UserContextType | undefined>(
   undefined
@@ -18,7 +13,7 @@ export function UserProvider({ children }: UserProviderProps): JSX.Element {
   const [userData, setUserData] = useState<User | null>(() => {
     const user = localStorage.getItem("user");
 
-    return user ? JSON.parse(user) : null;
+    return user ? (JSON.parse(user) as User) : null;
   });
 
   return (
