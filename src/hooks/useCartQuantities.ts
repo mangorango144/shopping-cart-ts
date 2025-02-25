@@ -9,7 +9,7 @@ export const useCartQuantities = (): {
     const storedQuantities = sessionStorage.getItem("cartQuantities");
     return storedQuantities
       ? (JSON.parse(storedQuantities) as CartQuantities)
-      : {};
+      : ({} as CartQuantities);
   });
 
   useEffect(() => {
