@@ -1,34 +1,36 @@
-import toast from "react-hot-toast";
-import { useRef } from "react";
-import { useUser } from "../hooks";
+import { FormEvent, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../hooks";
+import { capitalize } from "../lib";
+import { User } from "../types";
 import { MdEmail } from "react-icons/md";
 import { IoMdUnlock } from "react-icons/io";
 import { FaEyeSlash } from "react-icons/fa";
-import { capitalize } from "../lib";
+import toast from "react-hot-toast";
 
-export function Login() {
-  const inputRef = useRef(null);
+export function Login(): JSX.Element {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const navigate = useNavigate();
   const { setUserData } = useUser();
 
-  const togglePassword = () => {
+  const togglePassword = (): void => {
     if (inputRef.current) {
       inputRef.current.type =
         inputRef.current.type === "password" ? "text" : "password";
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
-    const form = e.target;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    // prettier-ignore
+    const password = (form.elements.namedItem("password") as HTMLInputElement).value;
 
     try {
       const res = await fetch("https://fakestoreapi.com/users");
-      const users = await res.json();
+      const users: User[] = await res.json();
 
       const user = users.find(
         (u) => u.email === email && u.password === password
@@ -79,7 +81,7 @@ export function Login() {
           <IoMdUnlock className="top-1/2 left-3 absolute text-slate-400 text-xl -translate-y-1/2" />
           <FaEyeSlash
             onClick={togglePassword}
-            className="top-1/2 right-3 absolute text-slate-400 text-xl hover:text-cyan-500 -translate-y-1/2 cursor-pointer"
+            className="top-1/2 right-3 absolute text-slate-400 hover:text-cyan-500 text-xl -translate-y-1/2 cursor-pointer"
           />
         </div>
 
